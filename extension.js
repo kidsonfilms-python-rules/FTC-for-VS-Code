@@ -36,6 +36,17 @@ const vscode = require('vscode');
 
 var subCmds = []
 
+let disposable = vscode.commands.registerCommand('ftc-for-vs-code.helloWorld', function () {
+	vscode.window.showInformationMessage('Hello World from FTC for VS Code!');
+});
+let runCMD = vscode.commands.registerCommand('ftc-for-vs-code.runApp', function () {
+	const terminal = vscode.window.createTerminal('FTC Build Terminal')
+	terminal.show()
+	terminal.sendText('echo stuff')
+});
+subCmds.push(runCMD)
+subCmds.push(disposable)
+
 function activate(context) {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
@@ -44,16 +55,6 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('ftc-for-vs-code.helloWorld', function () {
-		vscode.window.showInformationMessage('Hello World from FTC for VS Code!');
-	});
-	let runCMD = vscode.commands.registerCommand('ftc-for-vs-code.runApp', function () {
-		const terminal = vscode.window.createTerminal('FTC Build Terminal')
-		terminal.show()
-		terminal.sendText('echo stuff')
-	});
-	subCmds.push(runCMD)
-	subCmds.push(disposable)
 
 	subCmds.forEach((cmd) => {
 		console.log('Registering ' + cmd)
