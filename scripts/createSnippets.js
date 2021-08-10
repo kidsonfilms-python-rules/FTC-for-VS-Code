@@ -27,6 +27,7 @@ var http = require('https');
 var os = require('os');
 const fs = require('fs')
 const listGithubDir = require('list-github-dir-content');
+require('dotenv').config()
 
 // const snippetURLLinks = [
 //     "https://github.com/FIRST-Tech-Challenge/FtcRobotController/blob/master/FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples/BasicOpMode_Iterative.java",
@@ -40,7 +41,7 @@ async function getExampleFiles() {
         user: 'FIRST-Tech-Challenge',
         repository: 'FtcRobotController',
         directory: 'FtcRobotController/src/main/java/org/firstinspires/ftc/robotcontroller/external/samples',
-        token: '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'
+        token: process.env.GITHUB_PUBLIC_REPO_TOKEN
     });
     snippetURLLinks = snippetURLLinks.map((ourl) => 'https://github.com/FIRST-Tech-Challenge/FtcRobotController/blob/master/' + ourl)
     snippetURLLinks = snippetURLLinks.filter((ourl) => ourl.includes('.java'));
@@ -70,6 +71,7 @@ async function main() {
                 console.log('Formatting Code...')
     
                 code = code.replace(/\"/g, '\\"')
+                code = code.replace(/\\\"/, '\"')
                 const codeLines = code.split(os.EOL);
                 console.log('Stripping Description...')
     
@@ -83,7 +85,7 @@ async function main() {
                 if (fs.existsSync('../cache/snippets-generated.json')) {
                     const rawData = JSON.parse(fs.readFileSync('../cache/snippets-generated.json', { encoding: 'utf8' }))
                     rawData[s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0]] = { prefix: prefix, description: description, body: codeLines }
-                    const newData = JSON.stringify(rawData)
+                    const newData = JSON.stringify(rawData).replace(/\\\\\\\"/, '\\"')
                     fs.writeFileSync('../cache/snippets-generated.json', newData)
                 } else {
                     fs.writeFileSync('../cache/snippets-generated.json', '{}', 'utf8')
