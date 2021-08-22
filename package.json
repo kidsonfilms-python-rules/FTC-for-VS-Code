@@ -23,10 +23,7 @@
 			{
 				"command": "ftc-for-vs-code.runApp",
 				"title": "Build and Run FTC App",
-				"icon": {
-					"dark": "resources/play-icon.svg",
-					"light": "resources/play-icon.svg"
-				}
+				"icon": "`$(debug-start)`"
 			}
 		],
 		"snippets": [
@@ -39,7 +36,8 @@
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "yarn run lint",
-		"test": "node ./test/runTest.js"
+		"test": "node ./test/runTest.js",
+		"gen-snippets": "node ./scripts/genSnippets.js"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.3",

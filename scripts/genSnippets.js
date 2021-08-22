@@ -82,17 +82,17 @@ async function main() {
                 const prefix = s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0].charAt(0).toLowerCase() + s.split('/')[s.split('/').length - 1].replace(/\_/g, '').split('.')[0].slice(1)
                 console.log('Adding to Cache...')
     
-                if (fs.existsSync('../cache/snippets-generated.json')) {
-                    const rawData = JSON.parse(fs.readFileSync('../cache/snippets-generated.json', { encoding: 'utf8' }))
+                if (fs.existsSync('./cache/snippets-generated.json')) {
+                    const rawData = JSON.parse(fs.readFileSync('./cache/snippets-generated.json', { encoding: 'utf8' }))
                     rawData[s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0]] = { prefix: prefix, description: description, body: codeLines }
                     const newData = JSON.stringify(rawData).replace(/\\\\\\\"/, '\\"')
-                    fs.writeFileSync('../cache/snippets-generated.json', newData)
+                    fs.writeFileSync('./cache/snippets-generated.json', newData)
                 } else {
-                    fs.writeFileSync('../cache/snippets-generated.json', '{}', 'utf8')
+                    fs.writeFileSync('./cache/snippets-generated.json', '{}', 'utf8')
                     const rawData = {}
                     rawData[s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0]] = { prefix: prefix, description: description, body: codeLines }
                     const newData = JSON.stringify(rawData)
-                    fs.writeFileSync('../cache/snippets-generated.json', newData)
+                    fs.writeFileSync('./cache/snippets-generated.json', newData)
                 }
     
             });

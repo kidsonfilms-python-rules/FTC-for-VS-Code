@@ -40,9 +40,15 @@ let disposable = vscode.commands.registerCommand('ftc-for-vs-code.helloWorld', f
 	vscode.window.showInformationMessage('Hello World from FTC for VS Code!');
 });
 let runCMD = vscode.commands.registerCommand('ftc-for-vs-code.runApp', function () {
-	const terminal = vscode.window.createTerminal('FTC Build Terminal')
+	var terminal = null;
+	vscode.window.terminals.forEach((t) => {
+		if (t.name == 'FTC Build') {
+			terminal = t
+		}
+	})
+	if (terminal == null) terminal = vscode.window.createTerminal('FTC Build')
 	terminal.show()
-	terminal.sendText('echo stuff')
+	terminal.sendText('./gradlew')
 });
 subCmds.push(runCMD)
 subCmds.push(disposable)
