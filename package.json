@@ -1,5 +1,9 @@
 {
 	"name": "ftc-for-vs-code",
+	"publisher": "Juice16236",
+	"repository": {
+		"url": "https://github.com/kidsonfilms-python-rules/FTC-for-VS-Code"
+	},
 	"displayName": "FTC for VS Code",
 	"description": "An extension for accessing FTC snippets, debugger, and cmdline tools from a button",
 	"version": "0.0.1",
@@ -52,5 +56,8 @@
 		"mocha": "^8.4.0",
 		"typescript": "^4.3.2",
 		"vscode-test": "^1.5.2"
+	},
+	"dependencies": {
+		"vsce": "^1.96.1"
 	}
 }
