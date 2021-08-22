@@ -37,7 +37,8 @@
 		"lint": "eslint .",
 		"pretest": "yarn run lint",
 		"test": "node ./test/runTest.js",
-		"gen-snippets": "node ./scripts/genSnippets.js"
+		"gen-snippets": "node ./scripts/genSnippets.js",
+		"dev-init": "node ./scripts/init.js"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.3",
