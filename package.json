@@ -25,9 +25,10 @@
 				"title": "Hello World"
 			},
 			{
+				"category": "FTC",
 				"command": "ftc-for-vs-code.runApp",
 				"title": "Build and Run FTC App",
-				"icon": "`$(debug-start)`"
+				"icon": "./resources/play-icon.svg"
 			}
 		],
 		"snippets": [
@@ -35,7 +36,18 @@
 				"language": "java",
 				"path": "./snippets.json"
 			}
-		]
+		],
+		"menus": {
+			"editor/title/run": [
+				{
+					"category": "FTC",
+					"command": "ftc-for-vs-code.runApp",
+					"group": "navigation@0",
+					"title": "Build and Run FTC App",
+                    "when": "resourceLangId == java && !isInDiffEditor"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"lint": "eslint .",
