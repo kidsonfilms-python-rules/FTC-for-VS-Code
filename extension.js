@@ -88,9 +88,6 @@ const snippets = [
 ]
 var subCmds = []
 
-let disposable = vscode.commands.registerCommand('ftc-for-vs-code.helloWorld', function () {
-	vscode.window.showInformationMessage('Hello World from FTC for VS Code!');
-});
 let runCMD = vscode.commands.registerCommand('ftc-for-vs-code.runApp', function () {
 	var terminal = null;
 	vscode.window.terminals.forEach((t) => {
@@ -133,7 +130,6 @@ let createClassCMD = vscode.commands.registerCommand('ftc-for-vs-code.createClas
 });
 subCmds.push(runCMD)
 subCmds.push(createClassCMD)
-subCmds.push(disposable)
 
 function activate(context) {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)

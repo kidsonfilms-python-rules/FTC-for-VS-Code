@@ -14,7 +14,6 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:ftc-for-vs-code.helloWorld",
 		"onCommand:ftc-for-vs-code.runApp",
 		"onCommand:ftc-for-vs-code.createClass"
 	],
@@ -22,10 +21,6 @@
 	"files": ["./resources/snippets-new-class"],
 	"contributes": {
 		"commands": [
-			{
-				"command": "ftc-for-vs-code.helloWorld",
-				"title": "Hello World"
-			},
 			{
 				"category": "FTC",
 				"command": "ftc-for-vs-code.runApp",
