@@ -12,3 +12,5 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Added "Create Class" Command
 - Added Toolbar Button for the Build Command
+- Updated README
+- Updated Extension Icon

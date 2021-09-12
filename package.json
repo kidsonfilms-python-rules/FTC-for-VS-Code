@@ -19,7 +19,10 @@
 		"onCommand:ftc-for-vs-code.createClass"
 	],
 	"main": "./extension.js",
-	"files": ["./resources/snippets-new-class"],
+	"files": [
+		"./resources/snippets-new-class",
+		"./modules/**"
+	],
 	"contributes": {
 		"commands": [
 			{
