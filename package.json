@@ -15,9 +15,11 @@
 	],
 	"activationEvents": [
 		"onCommand:ftc-for-vs-code.helloWorld",
-		"onCommand:ftc-for-vs-code.runApp"
+		"onCommand:ftc-for-vs-code.runApp",
+		"onCommand:ftc-for-vs-code.createClass"
 	],
 	"main": "./extension.js",
+	"files": ["./resources/snippets-new-class"],
 	"contributes": {
 		"commands": [
 			{
@@ -29,6 +31,11 @@
 				"command": "ftc-for-vs-code.runApp",
 				"title": "Build and Run FTC App",
 				"icon": "./resources/play-icon.svg"
+			}, 
+			{
+				"category": "FTC",
+				"command": "ftc-for-vs-code.createClass",
+				"title": "Create Class"
 			}
 		],
 		"snippets": [

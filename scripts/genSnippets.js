@@ -87,12 +87,35 @@ async function main() {
                     rawData[s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0]] = { prefix: prefix, description: description, body: codeLines }
                     const newData = JSON.stringify(rawData).replace(/\\\\\\\"/, '\\"')
                     fs.writeFileSync('./cache/snippets-generated.json', newData)
+
+                    const rawNameData = JSON.parse(fs.readFileSync('./cache/snippets-names-generated.json', { encoding: 'utf8' }))
+                    rawNameData.push(s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0])
+                    const newNameData = JSON.stringify(rawNameData).replace(/\\\\\\\"/, '\\"')
+                    fs.writeFileSync('./cache/snippets-names-generated.json', newNameData)
+
+                    const newClassCode = data.match(new RegExp(/((?:[\n\r]|.)*)(package org.firstinspires.ftc.robotcontroller.external.samples;*)((?:[\n\r]|.)*)/))[2] + data.match(new RegExp(/((?:[\n\r]|.)*)(package org.firstinspires.ftc.robotcontroller.external.samples;*)((?:[\n\r]|.)*)/))[3]
+                    const rawNewClassData = JSON.parse(fs.readFileSync('./cache/snippets-newclass-generated.json', { encoding: 'utf8' }))
+                    rawNewClassData[s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0]] = newClassCode.replace(/(?<=\bclass\s)(\w+)/g, "REPLACE_CLASS").replace(/name="([^.]+)"/g, 'name="REPLACE_OPMODE_NAME", group="REPLACE_OPMODE_GROUP"').replace(/name = "([^.]+)"/g, 'name="REPLACE_OPMODE_NAME", group="REPLACE_OPMODE_GROUP"')
+                    const newNewClassData = JSON.stringify(rawNewClassData).replace(/\\\\\\\"/, '\\"')
+                    fs.writeFileSync('./cache/snippets-newclass-generated.json', newNewClassData)
                 } else {
                     fs.writeFileSync('./cache/snippets-generated.json', '{}', 'utf8')
                     const rawData = {}
                     rawData[s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0]] = { prefix: prefix, description: description, body: codeLines }
-                    const newData = JSON.stringify(rawData)
+                    const newData = JSON.stringify(rawData).replace(/\\\\\\\"/, '\\"')
                     fs.writeFileSync('./cache/snippets-generated.json', newData)
+
+                    fs.writeFileSync('./cache/snippets-names-generated.json', '{}', 'utf8')
+                    const rawNameData = []
+                    rawNameData.push(s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0])
+                    const newNameData = JSON.stringify(rawNameData).replace(/\\\\\\\"/, '\\"')
+                    fs.writeFileSync('./cache/snippets-names-generated.json', newNameData)
+
+                    const newClassCode = data.match(new RegExp(/((?:[\n\r]|.)*)(package org.firstinspires.ftc.robotcontroller.external.samples;*)((?:[\n\r]|.)*)/))[2] + data.match(new RegExp(/((?:[\n\r]|.)*)(package org.firstinspires.ftc.robotcontroller.external.samples;*)((?:[\n\r]|.)*)/))[3]
+                    const rawNewClassData = JSON.parse(fs.readFileSync('./cache/snippets-newclass-generated.json', { encoding: 'utf8' }))
+                    rawNewClassData[s.split('/')[s.split('/').length - 1].replace(/\_/g, ' ').split('.')[0]] = newClassCode
+                    const newNewClassData = JSON.stringify(rawNewClassData).replace(/\\\\\\\"/, '\\"').replace(/(?<=\bclass\s)(\w+)/g, "REPLACE_CLASS").replace(/name="([^.]+)"/g, 'name="REPLACE_OPMODE_NAME", group="REPLACE_OPMODE_GROUP"').replace(/name = "([^.]+)"/g, 'name="REPLACE_OPMODE_NAME", group="REPLACE_OPMODE_GROUP"')
+                    fs.writeFileSync('./cache/snippets-newclass-generated.json', newNewClassData)
                 }
     
             });
