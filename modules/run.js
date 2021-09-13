@@ -9,7 +9,7 @@ let runCMD = vscode.commands.registerCommand('ftc-for-vs-code.runApp', function 
 	})
 	if (terminal == null) terminal = vscode.window.createTerminal('FTC Build')
 	terminal.show()
-	terminal.sendText('./gradlew')
+	terminal.sendText('./gradlew installRelease')
 });
 
 module.exports = runCMD

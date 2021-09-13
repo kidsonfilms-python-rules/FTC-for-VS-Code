@@ -16,7 +16,9 @@
 	],
 	"activationEvents": [
 		"onCommand:ftc-for-vs-code.runApp",
-		"onCommand:ftc-for-vs-code.createClass"
+		"onCommand:ftc-for-vs-code.createClass",
+		"onCommand:ftc-for-vs-code.intializeProject",
+		"onCommand:ftc-for-vs-code.addDependency"
 	],
 	"main": "./extension.js",
 	"files": [
@@ -35,6 +37,16 @@
 				"category": "FTC",
 				"command": "ftc-for-vs-code.createClass",
 				"title": "Create Class"
+			},
+			{
+				"category": "FTC",
+				"command": "ftc-for-vs-code.addDependency",
+				"title": "Add Dependency"
+			},
+			{
+				"category": "FTC",
+				"command": "ftc-for-vs-code.intializeProject",
+				"title": "Intialize a new FTC Project"
 			}
 		],
 		"snippets": [
