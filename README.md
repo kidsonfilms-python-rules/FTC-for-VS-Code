@@ -23,4 +23,4 @@ There are currently no settings to edit.
 Please check our [CHANGELOG File](./CHANGELOG.md)
 
 ## Contributing
-Please fork and open a Pull Request if you have a change in mind, PRs may take some time to be reviewed. Also, try to be a Gracious Professional®
+Please fork and open a Pull Request if you have a change in mind, PRs may take some time to be reviewed. Also, try to be a Gracious Professional®. Also check [our Contribution Guide](./CONTRIBUTING.md)
