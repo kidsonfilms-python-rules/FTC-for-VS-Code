@@ -1,9 +1,8 @@
----
+<!-- ---
 title: How to's
 layout: template
 filename: commands
----
-
+--- -->
 ## Table of Contents
 - [Create a Project with FTC for VS Code Integrated](#Create-a-Project-with-FTC-for-VS-Code-Integrated)
 - [Use Snippets](#Use-Snippets)

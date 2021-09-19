@@ -1,9 +1,8 @@
----
+<!-- ---
 title: Getting Started with FTC for VS Code
 layout: template
 filename: index
---- 
-
+---  -->
 ## Our Goal
 When coding a robot for FTC, Android Studio is usually one of the only options you have if you want an easy coding experience. Andriod Studio however can be clunky and hard to navigate if you are used to another IDE. No longer is that the case, FTC for VS Code is going to try to make the FTC coding experience easier and faster by using VS Code!
 
