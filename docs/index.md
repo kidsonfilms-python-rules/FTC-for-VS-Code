@@ -16,3 +16,17 @@ Each page has their own Table of Contents, and navigate to different pages by go
    - Git (For the Project Creation Command) 
 2. Install the Extension - Install the Extension using the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Juice16236.ftc-for-vs-code&ssr=false#overview)
 3. Open your project and the plugin is ready to use!
+
+## Table of Contents
+- [Create a Project with FTC for VS Code Integrated](#Create-a-Project-with-FTC-for-VS-Code-Integrated)
+- [Use Snippets](#Use-Snippets)
+- [Create a Class with a template](#Create-a-Class-with-a-template)
+- [Build and Run your Project](#Build-and-Run-your-Project)
+
+## Create a Project with FTC for VS Code Integrated
+
+## Use Snippets
+
+## Create a Class with a template
+
+## Build and Run your Project
