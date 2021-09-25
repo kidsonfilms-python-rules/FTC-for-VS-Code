@@ -6,7 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [0.1.1]
 
-- Updated Snippets to FTC SDK 7.0
+- Updated Snippets reflect changes in FTC SDK 7.0
+- Simplified Create Class Prompts Workflow
 
 ## [0.1.0]
 
