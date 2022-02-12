@@ -32,7 +32,7 @@
 				"command": "ftc-for-vs-code.runApp",
 				"title": "Build and Run FTC App",
 				"icon": "./resources/play-icon.svg"
-			}, 
+			},
 			{
 				"category": "FTC",
 				"command": "ftc-for-vs-code.createClass",
@@ -62,9 +62,19 @@
 					"command": "ftc-for-vs-code.runApp",
 					"group": "navigation@0",
 					"title": "Build and Run FTC App",
-                    "when": "resourceLangId == java && !isInDiffEditor"
+					"when": "resourceLangId == java && !isInDiffEditor"
 				}
 			]
+		},
+		"configuration": {
+			"title": "FTC for VS Code",
+			"type": "Object",
+			"properties": {
+				"ftc-for-vs-code.useADB": {
+					"type": "boolean",
+					"description": "Use ADB to push code remotely to a FTCRobotController. Requires ADB to be installed on computer."
+				}
+			}
 		}
 	},
 	"scripts": {
