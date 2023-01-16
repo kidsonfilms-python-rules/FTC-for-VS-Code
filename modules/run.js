@@ -7,9 +7,11 @@ let runCMD = vscode.commands.registerCommand('ftc-for-vs-code.runApp', async fun
 	var projectFolder = findProjectDir();
 
 	var terminal = null;
-	const runCommand = process.platform == 'darwin' || process.platform == 'linux' ? `./gradlew installRelease ${vscode.workspace.getConfiguration('ftc-for-vs-code.ftc-for-vs-code').get('useADB') == true ? '&& adb shell monkey -p com.qualcomm.ftcrobotcontroller 1' : ''}` : `./gradlew.bat installRelease ${vscode.workspace.getConfiguration('ftc-for-vs-code.ftc-for-vs-code').get('useADB') == true ? '&& adb shell monkey -p com.qualcomm.ftcrobotcontroller 1' : ''}`
+	const runCommand = process.platform == 'darwin' || process.platform == 'linux' ? 
+	`.\\gradlew installRelease ${vscode.workspace.getConfiguration('ftc-for-vs-code.ftc-for-vs-code').get('useADB') == true ? '&& adb shell monkey -p com.qualcomm.ftcrobotcontroller 1' : ''}` 
+	: `./gradlew.bat installRelease ${vscode.workspace.getConfiguration('ftc-for-vs-code.ftc-for-vs-code').get('useADB') == true ? '&& adb shell monkey -p com.qualcomm.ftcrobotcontroller 1' : ''}`
 	if (!fs.existsSync(path.join(vscode.workspace.workspaceFolders[0].uri.fsPath, 'local.properties'))) {
-		const andriodSdkPath = process.env.ANDROID_HOME || process.env.ANDROID_SDK_ROOT || await vscode.window.showInputBox({title: 'Android SDK Path', prompt: "Enter the path of your Android SDK path. On Windows, it is sometimes C://Android/", ignoreFocusOut: true})
+		const andriodSdkPath = process.env.ANDROID_HOME || process.env.ANDROID_SDK_ROOT || await vscode.window.showInputBox({ title: 'Android SDK Path', prompt: "Enter the path of your Android SDK path. On Windows, it is sometimes C://Android/", ignoreFocusOut: true })
 		const createLocalPropertiesCommand = `cd "${vscode.workspace.workspaceFolders[0].uri.path}" && echo sdk.dir=${andriodSdkPath} > local.properties`
 		cp.exec(createLocalPropertiesCommand, (err, stdout, stderr) => {
 			console.log('stderr: ' + stderr);
@@ -41,6 +43,6 @@ function findProjectDir() {
 
 	console.log("done searching...");
 	return newlist;
-	
+
 }
 module.exports = runCMD

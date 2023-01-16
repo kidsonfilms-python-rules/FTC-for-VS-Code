@@ -55,7 +55,7 @@ async function main() {
         console.log(`Reading Data from: ${s}`)
         var options = {
             host: 'raw.githubusercontent.com',
-            path: s.replace('https://raw.githubusercontent.com', '').replace('blob/', '')
+            path: s.replace('https://github.com', '').replace('blob/', '')
         }
         var request = http.request(options, function (res) {
             var data = '';
@@ -66,6 +66,10 @@ async function main() {
                 console.log('Stripping Code...');
                 var re = new RegExp(/((?:[\n\r]|.)*)(public class*)((?:[\n\r]|.)*)/);
                 var arrMatches = data.match(re);
+
+                if (arrMatches == null) {
+                    return 0
+                }
     
                 var code = arrMatches[2] + arrMatches[3]
                 console.log('Formatting Code...')
